@@ -9,6 +9,7 @@ on: [pull_request, push]
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         # Use these Java versions
         java: [
@@ -29,7 +30,7 @@ jobs:
       - name: build
         run: wget https://github.com/TerraformersMC/ModMenu/releases/download/v2.0.2/modmenu-2.0.2.jar; mkdir -p build/loom-cache; mv modmenu*.jar build/loom-cache; ./gradlew build
       - name: capture build artifacts
-        if: ${{ runner.os == 'Linux' && matrix.java == '16' }} # Only upload artifacts built from latest java on one OS
+#        if: ${{ runner.os == 'Linux' && matrix.java == '16' }} # Only upload artifacts built from latest java on one OS
         uses: actions/upload-artifact@v2
         with:
           name: Artifacts
