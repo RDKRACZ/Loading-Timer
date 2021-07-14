@@ -18,7 +18,7 @@ jobs:
         java-version: ${{ matrix.java }}
         distribution: 'adopt'
     - name: Build with Gradle
-      run: mkdir ./build/loom-cache; pwd; cd ./build/loom-cache; wget https://github.com/TerraformersMC/ModMenu/releases/download/v2.0.2/modmenu-2.0.2.jar; ./gradlew build
+      run: pwd; ls -a; mkdir build/loom-cache; cd build/loom-cache; wget https://github.com/TerraformersMC/ModMenu/releases/download/v2.0.2/modmenu-2.0.2.jar; ./gradlew build
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2.2.4
       with:
