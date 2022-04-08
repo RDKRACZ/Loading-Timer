@@ -30,7 +30,7 @@ jobs:
         run: mkdir -p build/loom-cache; wget -P build/loom-cache https://github.com/TerraformersMC/ModMenu/releases/download/v2.0.2/modmenu-2.0.2.jar; ./gradlew build
       - name: capture build artifacts
         if: ${{ runner.os == 'Linux' && matrix.java == '16' }} # Only upload artifacts built from latest java on one OS
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Artifacts
           path: build/libs/
